@@ -1,0 +1,21 @@
+version: "3"
+services:
+  website:
+    image: nginx
+    ports:
+      - "8086:80"
+    networks:
+      coffee:
+        ipv4_address: 192.168.92.21
+
+  website2:
+    image: nginx
+    ports:
+      - "8087:80"
+networks:
+  coffee:
+    ipam:
+      driver: default
+      config:
+        - subnet: "192.168.92.0/24"
+

@@ -1,0 +1,15 @@
+
+E
+java:S3740"/Provide the parametrized type for this generic.(ÈØŸ
+M
+java:S1854"7Remove this useless assignment to local variable "ros".(Ç•Ëè
+Q
+java:S1854";Remove this useless assignment to local variable "rollNos".(±÷ó
+T
+java:S1854"?Remove this useless assignment to local variable "rollNumbers".(¨ÌØz
+E
+java:S1481"0Remove this unused "rollNumbers" local variable.(¨ÌØz
+B
+java:S1481",Remove this unused "rollNos" local variable.(±÷ó
+C
+java:S1481"(Remove this unused "ros" local variable.( ¾èúÿÿÿÿ
