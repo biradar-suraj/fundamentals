@@ -1,6 +1,6 @@
 package org.drogo.basics.problems.bs;
 
-public class MountainPeak {
+public class FindPeakInMountainArray {
     public static void main(String[] args) {
 
     }
