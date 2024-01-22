@@ -21,7 +21,7 @@ public class FindDuplicateNumber {
             }
         }
 
-        return 0;
+        return -1;
     }
 
     static void swap(int[] nums, int first, int second) {
