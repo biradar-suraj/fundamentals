@@ -4,30 +4,36 @@ import java.util.ArrayList;
 import java.util.List;
 
 /*
-    Leetcode problem 448.Find All Numbers Disappeared in an Array
-    https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/
+    Leetcode problem 442.Find All Duplicates in an Array
+    https://leetcode.com/problems/find-all-duplicates-in-an-array/description/
 */
-public class DisappearedNumbersInAnArray {
+public class FindAllDuplicatedInAnArray {
     public static void main(String[] args) {
-        int[] nums={4,3,2,7,8,2,3,1};
-        System.out.println(findDisappearedNumbers(nums));
+        int[] arr1 = {4, 3, 2, 7, 8, 2, 3, 1};
+        int[] arr2= {1,1,2};
+        int[] arr3={1};
+        System.out.println(findDuplicates(arr1));
+        System.out.println(findDuplicates(arr2));
+        System.out.println(findDuplicates(arr3));
+
 
     }
 
-    static List<Integer> findDisappearedNumbers(int[] nums) {
-        List<Integer> list = new ArrayList<>();
+    static List<Integer> findDuplicates(int[] nums) {
+
         for (int i = 0; i < nums.length; i++) {
             while (nums[i] != nums[nums[i] - 1]) {
                 swap(nums, i, nums[i] - 1);
             }
         }
+
+        List<Integer> list = new ArrayList<>();
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] != i + 1) {
-                list.add(i + 1);
+                list.add(nums[i]);
             }
         }
         return list;
-
     }
 
     static void swap(int[] nums, int first, int second) {
@@ -35,5 +41,4 @@ public class DisappearedNumbersInAnArray {
         nums[first] = nums[second];
         nums[second] = temp;
     }
-
 }

@@ -1,6 +1,9 @@
 package org.drogo.basics.problems.sort;
 
-//cyclic sort
+/*
+    Leetcode problem 287.Find the Duplicate Number
+    https://leetcode.com/problems/find-the-duplicate-number/description/
+*/
 public class FindDuplicateNumber {
     public static void main(String[] args) {
         int[] nums = {1, 3, 4, 2, 2};

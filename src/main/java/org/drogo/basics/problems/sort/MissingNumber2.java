@@ -1,6 +1,9 @@
 package org.drogo.basics.problems.sort;
 
-//alternate version
+/*
+    Leetcode problem 265.Missing Number
+    https://leetcode.com/problems/missing-number/description/
+*/
 public class MissingNumber2 {
     public static void main(String[] args) {
         int[] nums = {9, 6, 4, 2, 3, 5, 7, 0, 1};
