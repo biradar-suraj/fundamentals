@@ -74,6 +74,5 @@ class Interview {
 
         System.out.println(studentList);
 
-
     }
 }
