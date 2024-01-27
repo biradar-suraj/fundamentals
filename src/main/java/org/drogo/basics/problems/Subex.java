@@ -1,46 +1,50 @@
 package org.drogo.basics.problems;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.PriorityQueue;
+import java.util.*;
 
 public class Subex {
 
     public static void main(String[] args) {
         int[] nums = {2, 5, 4, 6, 7, 8, 9, 6, 7, 8, 9, 1, 2, 3, 4, 5, 6, 7, 9};
-        System.out.println(Arrays.toString(numberOfOccurrences(nums)));
+        numberOfOccurrences(nums);
 
     }
 
-    static int[] numberOfOccurrences(int[] nums) {
-        Map<Integer, Integer> map = new HashMap<>();
+    static void numberOfOccurrences(int[] inputArray) {
+        Map<Integer, Integer> elementCountMap = new HashMap<>();
 
-        for (int num : nums) {
-            map.put(num, map.getOrDefault(num, 0) + 1);
+        for (int i : inputArray) {
+            if (elementCountMap.containsKey(i)) {
+                elementCountMap.put(i, elementCountMap.get(i) + 1);
+            } else {
+                elementCountMap.put(i, 1);
+            }
         }
 
-        PriorityQueue<Map.Entry<Integer, Integer>> queue = new PriorityQueue<>((a, b) -> {
-            if (a.getValue().equals(b.getValue())) {
-                return b.getKey() - a.getKey();
+
+        List<Map.Entry<Integer, Integer>> listOfEntries = new ArrayList<>(elementCountMap.entrySet());
+
+        listOfEntries.sort((o1, o2) -> {
+            if (o1.getValue().equals(o2.getValue())) {
+                return o2.getKey().compareTo(o1.getKey());
             } else {
-                return b.getValue() - a.getValue();
+                return o2.getValue().compareTo(o1.getValue());
             }
         });
 
-        queue.addAll(map.entrySet());
-
-        int[] result = new int[nums.length];
-        int index = 0;
-        while (!queue.isEmpty()) {
-            Map.Entry<Integer, Integer> entry = queue.poll();
-            for (int i = 0; i < entry.getValue(); i++) {
-                result[index++] = entry.getKey();
-            }
+        List<Integer> outputList = new ArrayList<>();
+        for (Map.Entry<Integer, Integer> entry : listOfEntries) {
+            outputList.add(entry.getKey());
         }
 
-        return result;
+        int[] outputArray = new int[outputList.size()];
+        for (int i = 0; i < outputList.size(); i++) {
+            outputArray[i] = outputList.get(i);
+        }
+
+        System.out.println(Arrays.toString(outputArray));
     }
 
 
 }
+

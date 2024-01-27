@@ -7,7 +7,8 @@ package org.drogo.basics.problems.sort;
 public class MissingNumber {
     public static void main(String[] args) {
         int[] nums = {9, 6, 4, 2, 3, 5, 7, 0, 1};
-        System.out.println(missingNumber(nums));
+        int[] nums1 = {3,0,1};
+        System.out.println(missingNumber(nums1));
 
     }
 

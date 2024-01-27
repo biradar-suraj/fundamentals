@@ -12,6 +12,7 @@ public class ExploringStreams {
 
         int[] nums = {1, 4, 6, 7, 8, 9, 13, 19, 17};
 
+
         //find the largest number in an array
         int largestNumber = Arrays.stream(nums).max().getAsInt();
         System.out.println(largestNumber);
@@ -35,8 +36,6 @@ public class ExploringStreams {
                 .map(String::toUpperCase)
                 .collect(Collectors.toList());
         System.out.println(upperCaseWords);
-
-
 
 
     }

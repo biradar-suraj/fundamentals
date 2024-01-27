@@ -1,4 +1,4 @@
-package org.drogo.basics.sort;
+package org.drogo.basics.sorting;
 
 import java.util.Arrays;
 
