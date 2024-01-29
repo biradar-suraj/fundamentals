@@ -10,23 +10,23 @@ public class Solution {
 
     public String getCountruCodeAndPhoneNumber(String phoneNumber, String country) throws IOException {
 
-       String apiUrl ="https://jsonmock.hackerrank.com/api/counties?name="+country;
-        URL url= new URL(apiUrl);
-        HttpURLConnection conn= (HttpURLConnection) url.openConnection();
+        String apiUrl = "https://jsonmock.hackerrank.com/api/counties?name=" + country;
+        URL url = new URL(apiUrl);
+        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
         conn.setRequestMethod("GET");
-        BufferedReader bufferedReader= new BufferedReader(new InputStreamReader(conn.getInputStream()));
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 
         String inputLine;
-        StringBuffer stringBuffer= new StringBuffer();
-        while((inputLine=bufferedReader.readLine()) !=null){
-            stringBuffer.append(inputLine);
+        StringBuilder stringBuilder = new StringBuilder();
+        while ((inputLine = bufferedReader.readLine()) != null) {
+            stringBuilder.append(inputLine);
 
         }
-       bufferedReader.close();
+        bufferedReader.close();
         conn.disconnect();
 
-        String response= stringBuffer.toString();
+        String response = stringBuilder.toString();
 
         return "-1";
 

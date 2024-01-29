@@ -1,4 +1,4 @@
-package org.drogo.basics.collection;
+package org.drogo.basics.ds;
 
 public class Main {
     public static void main(String[] args) {

@@ -37,6 +37,17 @@ public class ExploringStreams {
                 .collect(Collectors.toList());
         System.out.println(upperCaseWords);
 
+        //filter
+        List<Integer> list = Arrays.asList(3, 4, 5, 6, 7, 8, 9, 12, 20);
+        list.stream()
+                .filter(num -> num % 2 == 0)
+                .forEach(System.out::println);
+
+        List<String> listOfString = Arrays.asList("sURaj", "RAmKI", "vInAYAK", "gaGaN");
+        listOfString.stream()
+                .filter(s -> Character.isUpperCase(s.charAt(1)))
+                .forEach(System.out::println);
+
 
     }
 }

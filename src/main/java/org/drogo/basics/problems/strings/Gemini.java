@@ -1,12 +1,9 @@
 package org.drogo.basics.problems.strings;
 
-import java.util.HashMap;
-
 public class Gemini {
     public static void main(String[] args) {
         String input = "aaabbcaa"; //a3b2c1a2
         System.out.println(findOccurrences(input));
-
 
 
     }
@@ -25,5 +22,6 @@ public class Gemini {
         }
         return sb.toString();
     }
+
 
 }

@@ -1,6 +1,5 @@
-package org.drogo.basics.collection;
+package org.drogo.basics.ds;
 
-import java.sql.Array;
 import java.util.*;
 
 public class LIstBasics {

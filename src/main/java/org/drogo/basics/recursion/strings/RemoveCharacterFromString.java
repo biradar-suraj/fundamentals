@@ -38,10 +38,47 @@ public class RemoveCharacterFromString {
 
     }
 
+    public static String skipApple(String input) {
+        String output;
+        if (input.isEmpty()) {
+            return "";
+        }
+
+        if (input.startsWith("apple")) {
+            output = skipApple(input.substring(5));
+        } else {
+            output = input.charAt(0) + skipApple(input.substring(1));
+        }
+
+        return output;
+
+
+    }
+
+    public static String skipAppNotApple(String input) {
+        String output;
+        if (input.isEmpty()) {
+            return "";
+        }
+
+        if (input.startsWith("app")&& !input.startsWith("apple")) {
+            output = skipAppNotApple(input.substring(3));
+        } else {
+            output = input.charAt(0) + skipAppNotApple(input.substring(1));
+        }
+
+        return output;
+
+
+    }
+
     public static void main(String[] args) {
-        String str = "baccdah";
+        String str = "bappleccdah";
         removeA(str, "");
-        System.out.println(skipA(str));
+        String outputSkipA=skipA(str);
+        System.out.println(outputSkipA);
+        String outputSkipApple = skipApple(str);
+        System.out.println(outputSkipApple);
     }
 
 }

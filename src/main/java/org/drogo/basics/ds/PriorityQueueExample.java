@@ -1,7 +1,5 @@
-package org.drogo.basics.collection;
+package org.drogo.basics.ds;
 
-import javax.script.ScriptEngine;
-import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 import java.util.PriorityQueue;
 

@@ -1,31 +1,34 @@
-package org.drogo.basics.collection;
+package org.drogo.basics.ds;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
 
-public class HashMapLL<K, V> {
+public class HashMapImpl<K, V> {
 
     private ArrayList<LinkedList<Entity>> list;
     private int size = 0;
+    private float loadFactor = 0.5f;
 
-    public HashMapLL() {
-        list = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            list.add(new LinkedList<>());
-        }
+    public HashMapImpl(int initialCapacity) {
+        list = new ArrayList<>(Collections.nCopies(initialCapacity, null));
     }
 
-    public HashMapLL(int initialCapacity) {
-        list = new ArrayList<>(Collections.nCopies(initialCapacity, null));
+    private class Entity {
+        K key;
+        V value;
+
+        public Entity(K key, V value) {
+            this.key = key;
+            this.value = value;
+        }
     }
 
     private int getHash(K key) {
         return Math.abs(key.hashCode() % list.size());
-
     }
 
-    public void put(K key, V value) {
+    private void put(K key, V value) {
         int hash = getHash(key);
         LinkedList<Entity> entities = list.get(hash);
 
@@ -40,13 +43,11 @@ public class HashMapLL<K, V> {
                 entity.value = value;
                 return;
             }
-
         }
 
         entities.add(new Entity(key, value));
         size++;
 
-        float loadFactor = 0.5f;
         if ((float) size / list.size() > loadFactor) {
             reHash();
         }
@@ -55,9 +56,7 @@ public class HashMapLL<K, V> {
     private void reHash() {
         System.out.println("Rehashing");
         ArrayList<LinkedList<Entity>> oldList = list;
-
         list = new ArrayList<>(Collections.nCopies(oldList.size() * 2, null));
-
         size = 0;
 
         for (LinkedList<Entity> entities :
@@ -71,9 +70,11 @@ public class HashMapLL<K, V> {
         }
     }
 
-    public V get(K key) {
 
-        LinkedList<Entity> entities = list.get(getHash(key));
+    public V get(K key) {
+        int hash = getHash(key);
+        LinkedList<Entity> entities = list.get(hash);
+
         if (entities != null) {
             for (Entity entity :
                     entities) {
@@ -81,14 +82,14 @@ public class HashMapLL<K, V> {
                     return entity.value;
                 }
             }
-
         }
+
         return null;
     }
 
     public void remove(K key) {
-
-        LinkedList<Entity> entities = list.get(getHash(key));
+        int hash = getHash(key);
+        LinkedList<Entity> entities = list.get(hash);
         Entity target = null;
         if (entities != null) {
             for (Entity entity :
@@ -101,18 +102,15 @@ public class HashMapLL<K, V> {
 
             entities.remove(target);
             size--;
-        }
 
+
+        }
+    }
+
+    public boolean containsKey(K key) {
+
+        return get(key) != null;
     }
 
 
-    private class Entity {
-        K key;
-        V value;
-
-        public Entity(K key, V value) {
-            this.key = key;
-            this.value = value;
-        }
-    }
 }

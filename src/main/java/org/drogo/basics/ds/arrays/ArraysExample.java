@@ -1,4 +1,4 @@
-package org.drogo.basics.collection.arrays;
+package org.drogo.basics.ds.arrays;
 
 import java.util.ArrayList;
 import java.util.Arrays;
