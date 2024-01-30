@@ -1,6 +1,6 @@
 package org.drogo.basics.problems;
 
-public class CalculateSum {
+public class CalculateSumDigitNum {
 
     public static void main(String[] args) {
         System.out.println(calc("1234c"));

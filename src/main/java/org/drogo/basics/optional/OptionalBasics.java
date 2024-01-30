@@ -35,4 +35,6 @@ public class OptionalBasics {
         Book book = new Book(name, "Suraj", 2024, 100);
         return Optional.ofNullable(book);
     }
+
+
 }
