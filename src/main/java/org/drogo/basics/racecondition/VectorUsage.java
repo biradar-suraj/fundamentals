@@ -1,4 +1,4 @@
-package org.drogo.basics.collections;
+package org.drogo.basics.racecondition;
 
 import java.util.ArrayList;
 import java.util.Collections;
