@@ -10,7 +10,8 @@ package org.drogo.basics.recursion;
 public class Fibonacci {
     public static void main(String[] args) {
         int n = 6;
-
+        int fibOf6 = fib(4);
+        System.out.println(fibOf6);
         for (int i = 0; i < n; i++) {
             System.out.println(fib(i));
 
