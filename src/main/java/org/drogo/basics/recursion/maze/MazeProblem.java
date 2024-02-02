@@ -65,10 +65,36 @@ public class MazeProblem {
         return answer;
     }
 
+    static void printAllPathsWithRestriction(int row, int col, String path, boolean[][] maze) {
+        if (row == maze.length - 1 && col == maze[0].length - 1) {
+            System.out.println(path);
+            return;
+        }
+
+        if (!maze[row][col]) {
+            return;
+        }
+
+        if (row < maze.length - 1) {
+            printAllPathsWithRestriction(row + 1, col, path + 'D', maze);
+        }
+        if (col < maze[0].length - 1) {
+            printAllPathsWithRestriction(row, col + 1, path + 'R', maze);
+        }
+    }
+
     public static void main(String[] args) {
         System.out.println(findPathCount(3, 3));
         printAllPaths(3, 3, "");
         System.out.println(findPathList(3, 3, ""));
         System.out.println(findPathListIncludingDiagonal(3, 3, ""));
+
+        boolean[][] board = {
+                {true, true, true},
+                {true, false, true},
+                {true, true, true}
+        };
+
+        printAllPathsWithRestriction(0, 0, "", board);
     }
 }
