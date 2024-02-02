@@ -1,4 +1,4 @@
-package org.drogo.basics.racecondition;
+package org.drogo.basics.multithreading;
 
 import java.util.ArrayList;
 import java.util.Collections;

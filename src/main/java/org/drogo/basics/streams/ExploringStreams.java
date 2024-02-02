@@ -31,6 +31,8 @@ public class ExploringStreams {
         double average = Arrays.stream(nums)
                 .average().getAsDouble();
 
+        double avg = Arrays.stream(nums).mapToDouble(i -> i).average().orElse(0.0);
+
         List<String> words = Arrays.asList("Hello", "World");
         List<String> upperCaseWords = words.stream()
                 .map(String::toUpperCase)

@@ -1,4 +1,4 @@
-package org.drogo.basics.racecondition;
+package org.drogo.basics.multithreading;
 
 /* StringBuilder results in a race condition when multiple thread operate on it
  *  Use StringBuffer to resolve this as the operations are synchronised*/

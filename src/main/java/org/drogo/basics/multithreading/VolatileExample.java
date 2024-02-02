@@ -1,4 +1,4 @@
-package org.drogo.basics.racecondition;
+package org.drogo.basics.multithreading;
 
 public class VolatileExample {
     private volatile static int count = 0;

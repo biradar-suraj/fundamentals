@@ -1,4 +1,4 @@
-package org.drogo.basics.racecondition;
+package org.drogo.basics.multithreading.racecondition;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
