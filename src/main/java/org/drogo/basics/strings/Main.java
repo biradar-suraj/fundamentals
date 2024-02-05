@@ -55,6 +55,13 @@ public class Main {
         System.out.println(string.equals(stringBuilder));
         System.out.println(stringBuilder.equals(stringBuffer));
 
+        System.out.println(string);
+        string += "Biradar";
+        String fullName = string.concat("Biradar");
+        System.out.println(string.length());
+        System.out.println(fullName);
+        System.out.println(string);
+
 
     }
 }

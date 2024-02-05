@@ -15,9 +15,19 @@ public class Main {
         int square = MathOperation.square(5);
         int cube = MathOperation.cube(5);
 
-        System.out.println("Sum: "+sum);
-        System.out.println("Difference: "+difference);
-        System.out.println("Square: "+square);
-        System.out.println("Cube: "+cube);
+        System.out.println("Sum: " + sum);
+        System.out.println("Difference: " + difference);
+        System.out.println("Square: " + square);
+        System.out.println("Cube: " + cube);
+
+        //Using Lambdas
+        MathOperation mathOpAdd = (a, b) -> a + b;
+        int add = mathOpAdd.add(5, 3);
+
+        MathOperation mathOpSubtract = (a, b) -> a - b;
+        int subtract = mathOpSubtract.subtract(5, 3);
+        System.out.println("Added using lambda: " + add);
+        System.out.println("Subtracted using lambda: " + subtract);
+
     }
 }
