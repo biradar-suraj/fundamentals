@@ -7,11 +7,11 @@ import java.util.concurrent.atomic.AtomicInteger;
  * */
 public class AtomicInt {
     public static void main(String[] args) {
-        ShareCounter shareCounter = new ShareCounter();
+        SharedCounter sharedCounter = new SharedCounter();
 
         Thread t1 = new Thread(() -> {
             for (int i = 0; i < 50000; i++) {
-                shareCounter.increament();
+                sharedCounter.increament();
 
             }
             System.out.println("Thread t1 completed");
@@ -19,7 +19,7 @@ public class AtomicInt {
 
         Thread t2 = new Thread(() -> {
             for (int i = 0; i < 50000; i++) {
-                shareCounter.increament();
+                sharedCounter.increament();
             }
             System.out.println("Thread t2 completed");
         });
@@ -34,18 +34,18 @@ public class AtomicInt {
             e.printStackTrace();
         }
 
-        System.out.println("Final count: " + shareCounter.getCount());
+        System.out.println("Final count: " + sharedCounter.getCount());
 
         Thread t3 = new Thread(() -> {
             for (int i = 0; i < 50000; i++) {
-                shareCounter.incrementAtomicCounter();
+                sharedCounter.incrementAtomicCounter();
             }
             System.out.println("Thread t3 completed");
         });
 
         Thread t4 = new Thread(() -> {
             for (int i = 0; i < 50000; i++) {
-                shareCounter.incrementAtomicCounter();
+                sharedCounter.incrementAtomicCounter();
             }
             System.out.println("Thread t4 completed");
         });
@@ -60,12 +60,12 @@ public class AtomicInt {
             e.printStackTrace();
         }
 
-        System.out.println("Final atomic count: " + shareCounter.getAtomicCount());
+        System.out.println("Final atomic count: " + sharedCounter.getAtomicCount());
 
     }
 }
 
-class ShareCounter {
+class SharedCounter {
     int count;
     AtomicInteger atomicCounter = new AtomicInteger(0);
 
