@@ -1,5 +1,6 @@
 package org.drogo.basics.recursion.maze;
 
+/* Back-tracking */
 public class PathInAllDirections {
 
     static void printAllPaths(int row, int col, String path, boolean[][] maze) {
@@ -11,6 +12,8 @@ public class PathInAllDirections {
         if (!maze[row][col]) {
             return;
         }
+
+        maze[row][col] = false;
 
         if (row < maze.length - 1) {
             printAllPaths(row + 1, col, path + 'D', maze);
@@ -24,12 +27,14 @@ public class PathInAllDirections {
         if (col > 0) {
             printAllPaths(row, col - 1, path + 'U', maze);
         }
+
+        maze[row][col] = true;
     }
 
     public static void main(String[] args) {
         boolean[][] board = {
                 {true, true, true},
-                {true, false, true},
+                {true, true, true},
                 {true, true, true}
         };
 
