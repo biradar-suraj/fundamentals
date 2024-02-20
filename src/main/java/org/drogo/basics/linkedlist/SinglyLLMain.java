@@ -1,6 +1,6 @@
 package org.drogo.basics.linkedlist;
 
-public class Main {
+public class SinglyLLMain {
     public static void main(String[] args) {
         SinglyLinkedList linkedList = new SinglyLinkedList();
         linkedList.insertFirst(2);
