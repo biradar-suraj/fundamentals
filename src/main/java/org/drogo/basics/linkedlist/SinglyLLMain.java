@@ -19,8 +19,25 @@ public class SinglyLLMain {
         linkedList.display();
         System.out.println(linkedList.delete(3));
 
-        linkedList.insertRecursively(10,2);
+        linkedList.insertRecursively(10, 2);
         linkedList.display();
+
+        /* Merge two sorted lists */
+        SinglyLinkedList first = new SinglyLinkedList();
+        first.insertLast(1);
+        first.insertLast(3);
+        first.insertLast(5);
+        first.display();
+
+        SinglyLinkedList second = new SinglyLinkedList();
+        second.insertLast(1);
+        second.insertLast(2);
+        second.insertLast(9);
+        second.insertLast(14);
+        second.display();
+
+        SinglyLinkedList result = SinglyLinkedList.mergeTwoLists(first, second);
+        result.display();
 
 
     }

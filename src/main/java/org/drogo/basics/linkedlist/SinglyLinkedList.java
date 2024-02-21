@@ -130,8 +130,37 @@ public class SinglyLinkedList {
             return temp;
         }
 
-        node.next = insertRecursively(value, index-1, node.next);
+        node.next = insertRecursively(value, index - 1, node.next);
         return node;
+    }
+
+    /* 21. Merge Two Sorted Lists
+    *  https://leetcode.com/problems/merge-two-sorted-lists/description/
+     */
+    public static SinglyLinkedList mergeTwoLists(SinglyLinkedList first, SinglyLinkedList second) {
+        SinglyLinkedList result = new SinglyLinkedList();
+        Node f = first.head;
+        Node s = second.head;
+
+        while (f != null && s != null) {
+            if (f.value < s.value) {
+                result.insertLast(f.value);
+                f = f.next;
+            } else {
+                result.insertLast(s.value);
+                s = s.next;
+            }
+        }
+
+        while (f != null) {
+            result.insertLast(f.value);
+            f = f.next;
+        }
+        while (s != null) {
+            result.insertLast(s.value);
+            s = s.next;
+        }
+        return result;
     }
 
     private class Node {
