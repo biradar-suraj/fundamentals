@@ -19,6 +19,9 @@ public class SinglyLLMain {
         linkedList.display();
         System.out.println(linkedList.delete(3));
 
+        linkedList.insertRecursively(10,2);
+        linkedList.display();
+
 
     }
 }
