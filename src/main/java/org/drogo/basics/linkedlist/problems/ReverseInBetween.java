@@ -56,8 +56,9 @@ public class ReverseInBetween {
         head.next.next = new ListNode(3);
         head.next.next.next = new ListNode(4);
         head.next.next.next.next = new ListNode(5);
+        head.next.next.next.next.next= new ListNode(9);
         int left=2;
-        int right=4;
+        int right=9;
         printList(head);
         ListNode reversedList = reverseBetween(head, left, right);
         printList(reversedList);
