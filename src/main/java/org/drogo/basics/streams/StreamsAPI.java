@@ -6,16 +6,17 @@ import java.util.stream.Stream;
 
 public class StreamsAPI {
 
-    static List<Employee> employees= new ArrayList<>();
+    static List<Employee> employees = new ArrayList<>();
+
     static {
         employees.add(
-                new Employee("Suraj","Biradar",8000.0,List.of("Project1","Project2"))
+                new Employee("Suraj", "Biradar", 8000.0, List.of("Project1", "Project2"))
         );
         employees.add(
-                new Employee("Ramki","N",9000.0,List.of("Project2","Project3"))
+                new Employee("Ramki", "N", 9000.0, List.of("Project2", "Project3"))
         );
         employees.add(
-                new Employee("Vinayaka","Hebbar",5000.0,List.of("Project2","Project4"))
+                new Employee("Vinayaka", "Hebbar", 5000.0, List.of("Project2", "Project4"))
         );
 
 
@@ -27,9 +28,9 @@ public class StreamsAPI {
         employees.forEach(System.out::println);
 
         //map
-        List<Employee> incrementedSalaryLisr1=employees.stream()
+        List<Employee> incrementedSalaryLisr1 = employees.stream()
                 .map(employee -> new Employee(
-                        employee.getFirstName(), employee.getLastName(), employee.getSalary()*1.10,employee.getProjects()))
+                        employee.getFirstName(), employee.getLastName(), employee.getSalary() * 1.10, employee.getProjects()))
                 .toList();
 
         System.out.println(incrementedSalaryLisr1);
@@ -93,6 +94,12 @@ public class StreamsAPI {
                 .reduce(0.0, Double::sum);
 
         System.out.println(totalSalary);
+
+        Map<String, Double> empMap = employees.stream()
+                .filter(employee -> employee.getSalary() > 5000)
+                .collect(Collectors.toMap(Employee::getFirstName, Employee::getSalary));
+
+        System.out.println(empMap);
 
     }
 }
