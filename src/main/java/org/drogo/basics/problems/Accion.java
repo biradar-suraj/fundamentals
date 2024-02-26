@@ -1,4 +1,4 @@
-package org.drogo.basics.interview;
+package org.drogo.basics.problems;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -39,7 +39,22 @@ public class Accion {
         }
         System.out.println("Second highest marks is: " + secondHighest);
 
-       
+        Map<Integer, Long> countMap1 = Arrays.stream(marksList)
+                .boxed()
+                .collect(Collectors.groupingBy(Integer::intValue, Collectors.counting()));
+
+        countMap1.entrySet()
+                .stream()
+                .filter(entry -> entry.getValue() > 1)
+                .forEach(entry -> System.out.println("Value " + entry.getKey() + " appears " + entry.getValue() + " times"));
+
+        Optional<Integer> secondHighest1 = Arrays.stream(marksList)
+                .distinct()
+                .boxed()
+                .sorted(Comparator.reverseOrder())
+                .skip(1)
+                .findFirst();
+        secondHighest1.ifPresent(value -> System.out.println("Second highest marks is: " + value));
 
     }
 }
