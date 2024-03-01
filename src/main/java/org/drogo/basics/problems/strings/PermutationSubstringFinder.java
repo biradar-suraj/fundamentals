@@ -13,10 +13,12 @@ public class PermutationSubstringFinder {
     }
 
     static boolean every(String substring, String string) {
-        Map<Character, List<Character>> collect = string.chars().mapToObj(c -> (char) c)
+        Map<Character, List<Character>> collect = string.chars()
+                .mapToObj(c -> (char) c)
                 .collect(Collectors.groupingBy(ch -> ch));
 
-        Map<Character, List<Character>> collect1 = substring.chars().mapToObj(c -> (char) c)
+        Map<Character, List<Character>> collect1 = substring.chars()
+                .mapToObj(c -> (char) c)
                 .collect(Collectors.groupingBy(ch -> ch));
 
         for (Map.Entry<Character, List<Character>> entry : collect1.entrySet()) {
