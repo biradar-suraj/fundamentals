@@ -99,4 +99,21 @@ public class BinarySearchTree {
         populateSorted(nums, start, mid);
         populateSorted(nums, mid + 1, end);
     }
+
+    public boolean isBST() {
+        return isBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+    }
+
+    private boolean isBST(Node node, int minValue, int maxValue) {
+        if (node == null) {
+            return true;
+        }
+
+        if (node.value <= minValue || node.value >= maxValue) {
+            return false;
+        }
+
+        return isBST(node.left, minValue, node.value)
+                && isBST(node.right, node.value, maxValue);
+    }
 }
