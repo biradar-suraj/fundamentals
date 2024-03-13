@@ -29,10 +29,10 @@ public class TreeNode {
         this.right = right;
     }
 
-    TreeNode() {
+    public TreeNode() {
     }
 
-    TreeNode(int val) {
+    public TreeNode(int val) {
         this.val = val;
     }
 
