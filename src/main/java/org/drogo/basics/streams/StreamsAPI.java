@@ -10,13 +10,19 @@ public class StreamsAPI {
 
     static {
         employees.add(
-                new Employee("Suraj", "Biradar", 8000.0, List.of("Project1", "Project2"))
+                new Employee(
+                        "Suraj", "Biradar", 8000.0, "Dev", List.of("Project1", "Project2")
+                )
         );
         employees.add(
-                new Employee("Ramki", "N", 9000.0, List.of("Project2", "Project3"))
+                new Employee(
+                        "Ramki", "N", 9000.0, "QA", List.of("Project2", "Project3")
+                )
         );
         employees.add(
-                new Employee("Vinayaka", "Hebbar", 5000.0, List.of("Project2", "Project4"))
+                new Employee(
+                        "Vinayaka", "Hebbar", 5000.0, "Infra", List.of("Project2", "Project4")
+                )
         );
 
 
@@ -30,7 +36,7 @@ public class StreamsAPI {
         //map
         List<Employee> incrementedSalaryLisr1 = employees.stream()
                 .map(employee -> new Employee(
-                        employee.getFirstName(), employee.getLastName(), employee.getSalary() * 1.10, employee.getProjects()))
+                        employee.getFirstName(), employee.getLastName(), employee.getSalary() * 1.10, employee.getDepartment(), employee.getProjects()))
                 .toList();
 
         System.out.println(incrementedSalaryLisr1);
@@ -39,7 +45,7 @@ public class StreamsAPI {
         List<Employee> incrementedSalaryList2 = employees.stream()
                 .filter(employee -> employee.getSalary() > 5000.0)
                 .map(employee -> new Employee(
-                        employee.getFirstName(), employee.getLastName(), employee.getSalary() * 1.10, employee.getProjects()))
+                        employee.getFirstName(), employee.getLastName(), employee.getSalary() * 1.10, employee.getDepartment(), employee.getProjects()))
                 .toList();
 
         System.out.println(incrementedSalaryList2);
@@ -48,7 +54,7 @@ public class StreamsAPI {
         Employee first = employees.stream()
                 .filter(employee -> employee.getSalary() > 5000.0)
                 .map(employee -> new Employee(
-                        employee.getFirstName(), employee.getLastName(), employee.getSalary() * 1.10, employee.getProjects()))
+                        employee.getFirstName(), employee.getLastName(), employee.getSalary() * 1.10, employee.getDepartment(), employee.getProjects()))
                 .findFirst().orElse(null);
 
         System.out.println(first);
@@ -100,6 +106,14 @@ public class StreamsAPI {
                 .collect(Collectors.toMap(Employee::getFirstName, Employee::getSalary));
 
         System.out.println(empMap);
+
+        //get the department with the highest salary
+        employees.stream()
+                .max(Comparator.comparingDouble(Employee::getSalary))
+                .map(Employee::getDepartment)
+                .ifPresent(emp -> System.out.println("Department with highest salary:" + emp));
+
+
 
     }
 }

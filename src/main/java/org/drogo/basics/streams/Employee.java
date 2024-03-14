@@ -6,15 +6,18 @@ public class Employee {
     private String firstName;
     private String lastName;
     private Double salary;
+    private String department;
     private List<String> projects;
 
-    public Employee() {
+    public Employee(String department) {
+        this.department = department;
     }
 
-    public Employee(String firstName, String lastName, Double salary, List<String> projects) {
+    public Employee(String firstName, String lastName, Double salary, String department, List<String> projects) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.salary = salary;
+        this.department = department;
         this.projects = projects;
     }
 
@@ -48,6 +51,14 @@ public class Employee {
 
     public void setProjects(List<String> projects) {
         this.projects = projects;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
     }
 
     @Override
