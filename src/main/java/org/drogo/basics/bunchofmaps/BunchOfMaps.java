@@ -20,12 +20,28 @@ public class BunchOfMaps {
         /*  Implementation of SortedMap and NavigableMap interfaces
             Iteration is guaranteed in natural sorted order of keys
             Red-black tree based implementation */
-        TreeMap<Integer, Integer> treeMap = new TreeMap<>();
+        TreeMap<String, String> treeMap = new TreeMap<>();
+        treeMap.put("Karnataka", "Bengaluru");
+        treeMap.put("Telangana", "Hyderabad");
+        treeMap.put("Tamil Nadu", "Chennai");
+        treeMap.put("Kerala", "Thiruvananthapuram");
+        treeMap.put("Madhya Pradesh", "Bhopal");
+        treeMap.put("Arunachal", "Itanagar");
+        treeMap.put("Maharashtra", "Mumbai");
+
+        treeMap.forEach((key, value) -> System.out.println(key + "-" + value));
 
         /* Uses identity to store and retrieve key values
            Uses reference equality, r1==r2 rather than r1.equals(r2)
            Memory footprint is smaller than HashMap*/
-        IdentityHashMap<Integer, Integer> identityHashMap = new IdentityHashMap<>();
+        IdentityHashMap<String, String> identityHashMap = new IdentityHashMap<>();
+        String s1 = new String("key1");
+        String s2 = new String("key1");
+        identityHashMap.put(s1, "value1");
+        identityHashMap.put(s2, "value2");
+        System.out.println("Size of IdentityMap: " + identityHashMap.size());
+        System.out.println(identityHashMap.get(s1));
+        System.out.println(identityHashMap.get(s2));
 
         /* Null keys are not permitted. Not synchronised
            Iterator does not fail-fast */
