@@ -11,17 +11,29 @@ public class StreamsAPI {
     static {
         employees.add(
                 new Employee(
-                        "Suraj", "Biradar", 8000.0, "Dev", List.of("Project1", "Project2")
+                        "Suraj",
+                        "Biradar",
+                        8000.0,
+                        "Dev", List.of("Project1", "Project2"),
+                        new Address("123 Main St", "City", "Country")
                 )
         );
         employees.add(
                 new Employee(
-                        "Ramki", "N", 9000.0, "QA", List.of("Project2", "Project3")
+                        "Ramki",
+                        "N",
+                        9000.0,
+                        "QA", List.of("Project2", "Project3"),
+                        new Address("456 Elm St", "Town", "Country")
                 )
         );
         employees.add(
                 new Employee(
-                        "Vinayaka", "Hebbar", 5000.0, "Infra", List.of("Project2", "Project4")
+                        "Vinayaka",
+                        "Hebbar",
+                        5000.0,
+                        "Infra", List.of("Project2", "Project4"),
+                        new Address("789 Oak St", "Village", "Country")
                 )
         );
 
@@ -34,18 +46,28 @@ public class StreamsAPI {
         employees.forEach(System.out::println);
 
         //map
-        List<Employee> incrementedSalaryLisr1 = employees.stream()
+        List<Employee> incrementedSalaryList1 = employees.stream()
                 .map(employee -> new Employee(
-                        employee.getFirstName(), employee.getLastName(), employee.getSalary() * 1.10, employee.getDepartment(), employee.getProjects()))
+                        employee.getFirstName(),
+                        employee.getLastName(),
+                        employee.getSalary() * 1.10,
+                        employee.getDepartment(),
+                        employee.getProjects(),
+                        employee.getAddress()))
                 .toList();
 
-        System.out.println(incrementedSalaryLisr1);
+        System.out.println(incrementedSalaryList1);
 
         //filter
         List<Employee> incrementedSalaryList2 = employees.stream()
                 .filter(employee -> employee.getSalary() > 5000.0)
                 .map(employee -> new Employee(
-                        employee.getFirstName(), employee.getLastName(), employee.getSalary() * 1.10, employee.getDepartment(), employee.getProjects()))
+                        employee.getFirstName(),
+                        employee.getLastName(),
+                        employee.getSalary() * 1.10,
+                        employee.getDepartment(),
+                        employee.getProjects(),
+                        employee.getAddress()))
                 .toList();
 
         System.out.println(incrementedSalaryList2);
@@ -54,7 +76,12 @@ public class StreamsAPI {
         Employee first = employees.stream()
                 .filter(employee -> employee.getSalary() > 5000.0)
                 .map(employee -> new Employee(
-                        employee.getFirstName(), employee.getLastName(), employee.getSalary() * 1.10, employee.getDepartment(), employee.getProjects()))
+                        employee.getFirstName(),
+                        employee.getLastName(),
+                        employee.getSalary() * 1.10,
+                        employee.getDepartment(),
+                        employee.getProjects(),
+                        employee.getAddress()))
                 .findFirst().orElse(null);
 
         System.out.println(first);
@@ -113,6 +140,14 @@ public class StreamsAPI {
                 .map(Employee::getDepartment)
                 .ifPresent(emp -> System.out.println("Department with highest salary:" + emp));
 
+        //sort the employees list first by name then by salary and then by country
+        var sortedList = employees.stream()
+                .sorted(Comparator.comparing(Employee::getFirstName)
+                        .thenComparing(Employee::getSalary)
+                        .thenComparing(emp -> emp.getAddress().getCountry()))
+                .toList();
+
+        sortedList.forEach(System.out::println);
 
 
     }

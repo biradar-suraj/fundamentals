@@ -8,17 +8,20 @@ public class Employee {
     private Double salary;
     private String department;
     private List<String> projects;
+    private Address address;
 
-    public Employee(String department) {
+    public Employee(String department, Address address) {
         this.department = department;
+        this.address = address;
     }
 
-    public Employee(String firstName, String lastName, Double salary, String department, List<String> projects) {
+    public Employee(String firstName, String lastName, Double salary, String department, List<String> projects, Address address) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.salary = salary;
         this.department = department;
         this.projects = projects;
+        this.address = address;
     }
 
     public String getFirstName() {
@@ -61,6 +64,14 @@ public class Employee {
         this.department = department;
     }
 
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
@@ -69,5 +80,41 @@ public class Employee {
                 ", salary=" + salary +
                 ", projects=" + projects +
                 '}';
+    }
+}
+
+class Address {
+    private String street;
+    private String city;
+    private String country;
+
+    public Address(String street, String city, String country) {
+        this.street = street;
+        this.city = city;
+        this.country = country;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
 }

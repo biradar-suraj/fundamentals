@@ -5,6 +5,8 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.OptionalInt;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class ExploringStreams {
 
@@ -48,6 +50,19 @@ public class ExploringStreams {
         List<String> listOfString = Arrays.asList("sURaj", "RAmKI", "vInAYAK", "gaGaN");
         listOfString.stream()
                 .filter(s -> Character.isUpperCase(s.charAt(1)))
+                .forEach(System.out::println);
+
+        int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        IntStream intStream = Arrays.stream(numbers)
+                .filter(num -> num % 2 == 0);
+
+        Stream<Integer> integerStream = Stream.of(1, 2, 3, 4, 5, 6, 7, 8)
+                .filter(num -> num % 2 == 0);
+
+        String[] str = {"java", "JAVA", "anguLar", "AnguLar"};
+
+        Arrays.stream(str)
+                .map(s -> s.toUpperCase() + "-2")
                 .forEach(System.out::println);
 
 
