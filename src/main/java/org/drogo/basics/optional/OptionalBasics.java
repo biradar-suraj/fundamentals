@@ -23,6 +23,19 @@ public class OptionalBasics {
         Double bookPrice = bookOptional.map(Book::getPrice)
                 .orElse(0.0);
 
+        try {
+            Optional<String> optionalString = Optional.of("Hello");
+            System.out.println(optionalString.orElse("Default"));
+
+        } catch (NullPointerException e) {
+            {
+                System.out.println("NullPointerException caught");
+            }
+        }
+
+        Optional<String> optinalNullable = Optional.ofNullable(null);
+        System.out.println(optinalNullable.orElse("Default"));
+
 
     }
 
