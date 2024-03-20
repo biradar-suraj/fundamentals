@@ -1,5 +1,6 @@
 package org.drogo.basics.bunchofmaps;
 
+import java.lang.ref.WeakReference;
 import java.util.Map;
 import java.util.WeakHashMap;
 
@@ -12,6 +13,12 @@ public class WeakHMap {
 
         Order o3 = new Order(3, "kitchen");
         orders.put(o3, 300);
+
+        WeakReference<Order> o4 = new WeakReference<>(new Order(4, "decor"));
+        orders.put(o4.get(), 400);
+
+        WeakReference<Order> o5 = new WeakReference<>(new Order(5, "daily essential"));
+        orders.put(o5.get(), 200);
         System.out.println(orders.size());
 
         System.gc();
