@@ -1,8 +1,10 @@
 package org.drogo.basics.streams.studentengage;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
@@ -97,8 +99,35 @@ public class Main {
         Arrays.stream(students)
                 .filter(s -> (s.getAge() - s.getAgeEnrolled() >= 7) &&
                         (s.getMonthsSinceActive() < 12))
-                .filter(s-> !s.hasProgrammingExperience())
-                .forEach(System.out::println);
+                .filter(s -> !s.hasProgrammingExperience())
+                .limit(5)
+                .toList()
+                .forEach(System.out::println); //stream ends at toList() forEach is performed on toList() and not on stream, not a terminal operation
+
+        List<Student> longTimeLearners = Arrays.stream(students)
+                .filter(s -> (s.getAge() - s.getAgeEnrolled() >= 7) &&
+                        (s.getMonthsSinceActive() < 12))
+                .filter(s -> !s.hasProgrammingExperience())
+                .limit(5)
+                .toList();  // introduced in java 16
+        longTimeLearners.forEach(System.out::println);
+
+        var longTimeArray = Arrays.stream(students)
+                .filter(s -> (s.getAge() - s.getAgeEnrolled() >= 7) &&
+                        (s.getMonthsSinceActive() < 12))
+                .filter(s -> !s.hasProgrammingExperience())
+                .limit(5)
+//                .toArray();
+                .toArray(Student[]::new);
+
+        var learners = Arrays.stream(students)
+                .filter(s -> (s.getAge() - s.getAgeEnrolled() >= 7) &&
+                        (s.getMonthsSinceActive() < 12))
+                .filter(s -> !s.hasProgrammingExperience())
+                .limit(5)
+                .collect(Collectors.toList());
+
+        Collections.shuffle(learners);
 
 
     }
