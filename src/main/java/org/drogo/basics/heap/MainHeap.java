@@ -1,5 +1,7 @@
 package org.drogo.basics.heap;
 
+import java.util.ArrayList;
+
 public class MainHeap {
     public static void main(String[] args) throws Exception {
         Heap<Integer> heap= new Heap<>();
@@ -8,11 +10,16 @@ public class MainHeap {
         heap.insert(22);
         heap.insert(89);
         heap.insert(76);
-        System.out.println(heap.remove());
-        System.out.println(heap.remove());
-        System.out.println(heap.remove());
-        System.out.println(heap.remove());
-        System.out.println(heap.remove());
+//        System.out.println(heap.remove());
+//        System.out.println(heap.remove());
+//        System.out.println(heap.remove());
+//        System.out.println(heap.remove());
+//        System.out.println(heap.remove());
+
+        var sortedList = heap.heapSort();
+        System.out.println(sortedList);
+
+
     }
 
 }
